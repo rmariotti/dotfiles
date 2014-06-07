@@ -1,0 +1,32 @@
+#! /bin/zsh
+
+# padding & border
+bspc config border_width	2
+bspc config window_gap		12
+bspc config top_padding		16
+
+bspc config split_ratio		0.52
+bspc config borderless_monocle	true
+bspc config gapless_monocle	true
+
+bspc monitor -d 001 010 011 100 101 111
+
+# /home/rmariotti/.config/panel/panel  dzen2 > /home/rmariotti/panel.log &
+nohup panel dzen2 > /dev/null 2>&1
+
+# application
+
+# apps/graphics
+bspc rule -a Gimp desktop=^6 follow=on floating=on
+
+# apps/internet
+bspc rule -a Firefox desktop=^1 follow=on
+bspc rule -a Deluge desktop=^5 floating=on
+bspc rule -a Pidgin desktop=^5 floating=on
+
+# apps/files
+bspc rule -a spacefm desktop=^3
+
+# colors
+bspc config focused_border_color "#FFFFFF"
+bspc config normal_border_color "#002b36"
